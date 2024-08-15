@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Projetos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json"> <!-- Adiciona o link para o manifest -->
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro de Projetos</h1>
+        <form id="project-form">
+            <div class="form-group">
+                <label for="project-name">Nome do Projeto:</label>
+                <input type="text" id="project-name" name="project-name" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Descrição:</label>
+                <textarea id="description" name="description" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="responsible">Responsável:</label>
+                <input type="text" id="responsible" name="responsible" required>
+            </div>
+            <div class="form-group">
+                <label for="start-date">Data de Início:</label>
+                <input type="date" id="start-date" name="start-date" required>
+            </div>
+            <div class="form-group">
+                <label for="end-date">Data de Término:</label>
+                <input type="date" id="end-date" name="end-date" required>
+            </div>
+            <div class="form-group">
+                <label for="status">Status:</label>
+                <select id="status" name="status" required>
+                    <option value="planejado">Planejado</option>
+                    <option value="em andamento">Em Andamento</option>
+                    <option value="concluído">Concluído</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="budget">Orçamento:</label>
+                <input type="number" id="budget" name="budget" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Salvar Projeto</button>
+            </div>
+            <div class="form-group">
+                <a href="projetos-salvos.html" class="link-button">Ver Projetos Salvos</a>
+            </div>
+        </form>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // Registro do Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                .then((registration) => {
+                    console.log('Service Worker registrado com sucesso:', registration);
+                })
+                .catch((error) => {
+                    console.log('Falha ao registrar o Service Worker:', error);
+                });
+            });
+        }
+    </script>
+</body>
+</html>

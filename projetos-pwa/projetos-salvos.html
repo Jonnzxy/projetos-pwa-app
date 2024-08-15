@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos Salvos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json"> <!-- Adiciona o link para o manifest -->
+</head>
+<body>
+    <div class="container">
+        <h1>Projetos Salvos</h1>
+        <ul id="project-list"></ul>
+        <div class="form-group">
+            <a href="inicio.html" class="link-button">Cadastrar Novo Projeto</a>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // Registro do Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                .then((registration) => {
+                    console.log('Service Worker registrado com sucesso:', registration);
+                })
+                .catch((error) => {
+                    console.log('Falha ao registrar o Service Worker:', error);
+                });
+            });
+        }
+    </script>
+</body>
+</html>
